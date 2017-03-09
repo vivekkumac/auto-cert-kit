@@ -1,3 +1,4 @@
 paramiko
 coveralls
 autopep8
+urwid

@@ -34,7 +34,7 @@ import testbase
 from utils import *
 
 
-class PerfTestClass(testbase.LocalStorageTestClass):
+class PerfTestClass(testbase.StorageTestClass):
     """A somewhat generic test class for local storage 
     performance tests that could be expanded to include 
     additional plugin-based tasks"""
@@ -148,3 +148,8 @@ class PerfTestClass(testbase.LocalStorageTestClass):
                                                                 config['user'],
                                                                 config['log'])
         return self._run_test(session)
+
+class PoolWideStorageTestClass(StorageTestClass):
+
+    def _run_test(self, session):
+        pass

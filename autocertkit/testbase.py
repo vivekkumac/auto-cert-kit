@@ -415,9 +415,9 @@ class NetworkTestClass(TestClass):
         return res
 
 
-class LocalStorageTestClass(TestClass):
+class StorageTestClass(TestClass):
     """Sub class for storage tests"""
-    base_tag = 'LS'
+    base_tag = 'STR'
 
 
 class CPUTestClass(TestClass):
