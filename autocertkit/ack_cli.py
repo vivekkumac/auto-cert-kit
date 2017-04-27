@@ -197,7 +197,8 @@ def parse_netconf_file(filename):
                                             (MIN_VLAN, MAX_VLAN))
 
             rec[key] = {'network_id': network_id, 'vlan_ids': vlan_ids}
-
+        elif key == "static_management":
+            rec[key] = parse_static_config(value)
         elif key.startswith('static'):
             # Definition of network properties (e.g. dhcp/static)
             arr = key.split('_')
@@ -439,6 +440,7 @@ def main(config, test_run_file):
     # Kick off the testrunner
     utils.log.info("Starting Test Runner from ACK CLI.")
     test_file, output = test_runner.run_tests_from_file(test_run_file)
+
 
 if __name__ == "__main__":
     # Parse Args

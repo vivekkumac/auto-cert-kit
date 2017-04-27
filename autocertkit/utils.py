@@ -65,6 +65,7 @@ LOG_LOC = "/var/log/auto-cert-kit.log"
 
 # Capability Tags
 REQ_CAP = "REQ"
+MULTICAST_CAP = "MULTICAST"
 
 # XAPI States
 XAPI_RUNNING_STATE = "Running"
@@ -75,6 +76,7 @@ def configure_logging():
     """Method for configuring Logging"""
     global log
     log = acktools.log.configure_log(LOG_NAME, LOG_LOC)
+
 
 configure_logging()
 
