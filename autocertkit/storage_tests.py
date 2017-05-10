@@ -149,6 +149,7 @@ class PerfTestClass(testbase.StorageTestClass):
                                                                 config['log'])
         return self._run_test(session)
 
+
 class PoolWideStorageTestClass(StorageTestClass):
 
     def _run_test(self, session):

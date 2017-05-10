@@ -31,6 +31,7 @@
 """A module for utility functions shared with storage test cases"""
 from utils import call_ack_plugin, log
 
+
 def is_multipathing(session, host):
     try:
         hconf = session.xenapi.host.get_other_config(host)
@@ -41,29 +42,31 @@ def is_multipathing(session, host):
         log("Exception determining multipath status. Exception: %s" % str(e))
     return False
 
+
 def enable_multipathing(session, host):
     try:
-        session.xenapi.host.remove_from_other_config(host , 'multipathing')
+        session.xenapi.host.remove_from_other_config(host, 'multipathing')
         session.xenapi.host.remove_from_other_config(host, 'multipathhandle')
         session.xenapi.host.add_to_other_config(host, 'multipathing', 'true')
         session.xenapi.host.add_to_other_config(host, 'multipathhandle', 'dmp')
     except Exception, e:
         log("Exception enabling multipathing. Exception: %s" % str(e))
 
+
 def disable_multipathing(session, host):
     try:
-        session.xenapi.host.remove_from_other_config(host , 'multipathing')
+        session.xenapi.host.remove_from_other_config(host, 'multipathing')
         session.xenapi.host.remove_from_other_config(host, 'multipathhandle')
         session.xenapi.host.add_to_other_config(host, 'multipathing', 'false')
     except Exception, e:
         log("Exception disabling multipathing. Exception: %s" % str(e))
 
+
 def createSR(session, host, TODO):
-    #TODO
+    # TODO
     pass
+
 
 def attachSR(session, host, sr, TODO):
-    #TODO
+    # TODO
     pass
-
-
