@@ -150,7 +150,33 @@ class PerfTestClass(testbase.StorageTestClass):
         return self._run_test(session)
 
 
-class PoolWideStorageTestClass(StorageTestClass):
+class MultipathTestClass(StorageTestClass):
+    """Check multipath configuration and path counts.
+
+    Description:
+
+    Manual Steps:
+        1. Enable multipath.
+        2. Create a shared SR, plug it.
+        3. Make sure that the active and passive path-count in the PBDs
+    are the same on every host in the pool.
+        4. Check that each host has the same path count.
+        5. Create VBD, VDI.
+        6. Make sure there are at least two paths
+        7. Calculate the number of active paths.
+        8. Iteratively test failover by having IO running on a path,
+    blocking the path using a specified script, expecting failover in
+    50s, expecting failback in 120s.
+
+    Cleanup Steps:
+        1. Delete VBD, VDI.
+        2. Destroy SR.
+        3. Disable multipath
+
+    Notes:
+
+
+    """
 
     def _run_test(self, session):
         pass
